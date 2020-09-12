@@ -1,0 +1,39 @@
+<%- include("../partials/header") %>
+
+<div class="container mx-auto ">
+    <div class="d-flex justify-content-center my-4">
+        <h1 class="diplay-4"> <%= user.username %>'s Profile</h1>
+    </div>
+<div class="row">
+    <div class="col-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                <%= user.username %>'s Details
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">First Name - <%= user.firstName %></li>
+              <li class="list-group-item">Last Name - <%= user.lastName %></li>
+              <li class="list-group-item">E-mail - <%= user.email %></li>
+            </ul>
+          </div>
+    </div>
+    <div class="col-3"></div>
+    <div class="col-6 ">
+        <h1> <%= user.firstName %>'s Campgrounds</h1>
+        <ul>
+            <% campgrounds.forEach(function(campground){ %>
+                 <li>
+                    <a href="/campgrounds/<%= campground._id %>"><%= campground.name %></a> 
+                 </li>
+            <% }) %>   
+         </ul>
+    </div>
+</div>
+    
+    
+
+</div>
+
+
+
+<%- include("../partials/footer") %>

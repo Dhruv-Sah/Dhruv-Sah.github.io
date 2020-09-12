@@ -1,0 +1,39 @@
+<%- include("../partials/header") %>
+
+    <div class="container d-flex justify-content-center">
+        <h1>Hello <%= user.username %></h1>
+    </div>
+
+    <div class="container d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header" style="background-color: rgb(39, 110, 151);">Camp-Essentials</div>
+            <form action="/<%= user._id %>/essentials"  method="POST" class="form-inline my-0" style="box-sizing: border-box;">
+                <div class="form-group">
+                <input type="text" class="ToAdd form-control" name="ToAdd" placeholder="Add new items">
+                </div>
+                <div class="form-group">
+                <button class="btn btn-success form-control ml-2" type="submit">Submit</button>
+                </div>
+            </form>
+            <ul class="list-group list-group-flush">
+                    <% essential.forEach(function(added){ %>                       
+                            <%   if(!(added.item=="")){ %>           
+                        <li class="list-group-item ToAdd pl-0" >
+                            <% console.log(added._id) %>   
+                        <form action="/<%= user._id %>/essentials/<%= added._id %>?_method=DELETE" method="POST" 
+                              class="Trash">
+                              <button class="btn btn-default"><i class="fa fa-trash"></i></button>
+                        </form>
+                             
+                        </form>      
+                        <span onclick="$(this).toggleClass('complete')"> <%= added.item %> </span>
+                        </li>
+                            <%  } %>      
+                    <% }) %>             
+            </ul>
+        </div>
+    </div>
+
+
+<%- include("../partials/footer") %>
+

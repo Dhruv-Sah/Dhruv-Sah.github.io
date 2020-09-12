@@ -1,0 +1,38 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<header class="jumbotron text-center">
+		<div class="container">
+			<h1 style="font-size: 3rem;"><%= user.username %>'s Bucket List</h1>
+			<p class="lead">Hand picked by you!</p>
+		</div>
+	</header>
+
+   <div class="container"">
+	<div class="d-flex justify-content-center">
+		<div class="row"  >
+			<% bucket.forEach(function(campground){ %>
+				<% if(campground.user.id.equals(user._id)){ %>
+					<div class="card my-3 mx-auto " style="width: 22rem;">
+						<img class="card-img-top" src="<%= campground.image %>" >
+						<div class="card-body mx-auto">
+						  <h4 class="card-title text-center"><a href="/campgrounds/<%= campground.original.id %>"><%= campground.name %></a> </h4>
+						  <h6 class="card-subtitle text-muted text-center">Rs.<%= campground.cost %>/night </h6>		  
+						</div>
+						<form action="/<%=user._id %>/bucketlist/<%= campground._id %>?_method=DELETE" method="POST" class="text-center">
+							<button class="btn btn-danger btn-md mx-auto mb-2">Delete</button>
+						</form>
+					</div>
+					<div style="width: 1rem;">
+					</div>
+				<% } %>
+					
+			<%  }); %>
+		</div>
+	</div>
+   </div>
+	
+</div>
+
+
+<%- include("../partials/footer") %>

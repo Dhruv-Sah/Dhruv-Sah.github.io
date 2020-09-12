@@ -1,0 +1,41 @@
+<%- include("./partials/header") %>
+
+
+<div class="container">
+    <h1 class="text-center display-5">Login</h1>
+
+    <form action="/login" method="POST" class="mx-0 my-2">
+        <div class="form-group">
+            <input class="form-control" type="text" name="username" placeholder="username">
+        </div>
+        
+        <div class="form-group">
+            <input class="form-control" type="password" id="typepass" name="password" placeholder="password">
+        </div>
+
+       <div class="form-group">
+        <input id="Toggle" type="checkbox" onclick="{ 
+            var temp = document.getElementById('typepass'); 
+            if (temp.type == 'password') { 
+                temp.type = 'text'; 
+            } 
+            else { 
+                temp.type = 'password'; 
+            } 
+        } "> 
+        <label for="toggle" >Show Password</label>
+        </div>
+       
+        <div class="form-group">
+            <button class="btn btn-success form-control" >Login</button>
+            <a href="/forgot" class="btn btn-link">Forgot Password?</a>
+        </div>
+
+        <div class="form-group">
+            <a href="/auth/google"> Login with Google</a>
+        </div>
+        
+    </form>
+</div>
+
+<%- include("./partials/footer") %>

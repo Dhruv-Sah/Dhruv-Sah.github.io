@@ -1,0 +1,57 @@
+<%- include("./partials/header") %>
+
+<div class="container">
+    <h1 class="text-center display-5">Sign Up</h1>
+
+    <form action="/register" method="POST" class="mx-0 my-2">
+        <div class="form-group">
+            <input class="form-control" type="text" name="username" placeholder="username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="firstName" placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="lastName" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="E-mail">
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="typeadm" type="password" name="admincode" placeholder="Admin Code">
+        </div>
+        <div class="form-group">
+            <input type="checkbox" onclick="{ 
+                var temp = document.getElementById('typeadm'); 
+                if (temp.type == 'password') { 
+                    temp.type = 'text'; 
+                } 
+                else { 
+                    temp.type = 'password'; 
+                } 
+            } "> 
+        <b>Show Admin Code</b> 
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="typepass" type="password" name="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <input  type="checkbox" onclick="{ 
+                var temp = document.getElementById('typepass'); 
+                if (temp.type == 'password') { 
+                    temp.type = 'text'; 
+                } 
+                else { 
+                    temp.type = 'password'; 
+                } 
+            } "> 
+        <b>Show Password</b> 
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success form-control" >Submit</button>
+        </div>
+        
+    </form>
+</div>
+
+
+<%- include("./partials/footer") %>
